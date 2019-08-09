@@ -1,0 +1,45 @@
+/* .trello{
+    background-color: darkturquoise
+} */
+.Login-component {
+    /* The image used */
+    /* background-image: url(); */
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.trello{
+    height: 100%;
+    flex-direction: column;
+    margin-right: 0;
+    transition: margin .1s ease-in;
+    background-color: plum
+}
+
+.fieldset{
+    width: 272px;
+    margin: 0 4px;
+    height: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    background-color:gray;
+}
+
+.newList{
+    background-color: green;
+    color: whitesmoke
+}
+.divBody{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url(../images/backgroundImage.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
