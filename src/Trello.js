@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import { getAllLists } from './actions/ListActions';
 import Lists from './TrelloLists/Lists';
 
-export default class Trello extends React.Component{
+class Trello extends React.Component{
 
 
   constructor(props){
@@ -18,21 +18,21 @@ export default class Trello extends React.Component{
       inputShow:false,
       listName:""
     }
-    this.getAllLists=this.getAllLists.bind(this)
+    // this.getAllLists=this.getAllLists.bind(this)
     this.handleChange=this.handleChange.bind(this)
     this.handleClick=this.handleClick.bind(this)
   }
 
 
 componentWillMount(){
-  // this.props.getAllLists(this.state.lists)
-  axios.get("https://api.trello.com/1/boards/5d3f23cea02d998eddee61cf/lists")
-  .then(response=>{
-    this.setState({lists:response.data})
-  }
-  )
+  this.props.getAllLists()
+  // axios.get("https://api.trello.com/1/boards/5d3f23cea02d998eddee61cf/lists")
+  // .then(response=>{
+  //   this.setState({lists:response.data})
+  // }
+  // )
 
-  this.getAllLists();
+  // this.getAllLists();
 }
 
 handleClick(e){
@@ -50,14 +50,14 @@ addNewList(name){
   })
 }
 
-getAllLists(){
-axios.get("https://api.trello.com/1/boards/5d3f23cea02d998eddee61cf/?cards=all")
-.then(response=>{
-  this.setState({
-    cards:response.data
-  })
-})
-}
+// getAllLists(){
+// axios.get("https://api.trello.com/1/boards/5d3f23cea02d998eddee61cf/?cards=all")
+// .then(response=>{
+//   this.setState({
+//     cards:response.data
+//   })
+// })
+// }
 
 handleChange(e){
   e.preventDefault();
@@ -92,12 +92,12 @@ handleChange(e){
   }
 }
 
-/* const mapStateToProps=(state)=>{
+ const mapStateToProps=(state)=>{
   return{
     lists:state.lists
   }
 }
 const mapDispatchToProps=dispatch=>({
-  getAllLists:(lists)=>dispatch(getAllLists(lists))
+  getAllLists:()=>dispatch(getAllLists())
 })
-export default connect(mapStateToProps,mapDispatchToProps)(Trello) */
+export default connect(mapStateToProps,mapDispatchToProps)(Trello) 

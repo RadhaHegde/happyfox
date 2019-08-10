@@ -10,9 +10,17 @@ export default function lists(state = initialState, action) {
 
     switch (action.type) {
         case 'GETLISTS_REQUEST':
-            return Object.assign({}, state, {
-                isFetching: true
+            fetch("https://api.trello.com/1/boards/5d3f23cea02d998eddee61cf/?cards=all")
+            .then((response)=>{
+                response.json()
             })
+            .then((data)=>{
+                console.log(data)
+            })
+            .catch((error)=>{
+                
+            })
+            break;
         case 'GET_LISTS':
             return Object.assign({}, state, {
                 isFetching: false,
